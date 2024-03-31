@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
    # provenance de la requête (ID ou URL de l'app React.js) : http://127.0.0.1:5173
-    origins "*"
+    origins "http://localhost:5173"
    #  developpement origin "https://mon-site.com" ou "https://www.mon-site.com"
 
     resource "*",
