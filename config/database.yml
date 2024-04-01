@@ -1,3 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: localhost
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: <%= ENV['PG_DATABASE'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['PG_DATABASE'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['PG_DATABASE'] %>
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+
+  
 # # SQLite. Versions 3.8.0 and up are supported.
 # #   gem install sqlite3
 # #
@@ -31,26 +55,3 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
 #
-
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  host: localhost
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
-
-development:
-  <<: *default
-  database: <%= ENV['PG_DATABASE'] %>
-
-test:
-  <<: *default
-  database: <%= ENV['PG_DATABASE'] %>
-
-production:
-  <<: *default
-  database: <%= ENV['PG_DATABASE'] %>
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
