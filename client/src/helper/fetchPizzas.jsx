@@ -6,6 +6,7 @@ export default function fetchPizzas(API_URL, setPizzas, setLoading, setError) {
       const response = await fetch(API_URL);
       if (response.ok) {
         const json = await response.json();
+        json.sort((a, b) => a.id - b.id);
         setPizzas(json);
       } else {
         throw response;
