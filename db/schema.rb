@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_093003) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_01_104333) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_093003) do
     t.float "smallprice"
     t.float "mediumprice"
     t.string "ingredients", limit: 255
+    t.boolean "rolled_up", default: false
   end
 
 end
