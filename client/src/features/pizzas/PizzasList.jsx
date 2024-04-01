@@ -15,12 +15,12 @@ export default function PizzasList() {
     <>
       <h2>Pizzas List</h2>
       <ul>
-        {pizzas.map(({ id, name, smallPrice, mediumPrice, ingredient }) => (
+        {pizzas.map(({ id, name, smallprice, mediumprice, ingredients }) => (
           <li key={id}>
             <h2>{name}</h2>
-            <p>{smallPrice}</p>
-            <p>{mediumPrice}</p>
-            <p>{ingredient}</p>
+            <p>petite: {smallprice}€</p>
+            <p>grande: {mediumprice}€</p>
+            <p>ingredients: {ingredients}</p>
           </li>
         ))}
       </ul>
