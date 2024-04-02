@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "../../constants";
-import fetchPizzas from "../../helper/fetchPizzas";
+import fetchData from "../../helper/fetchData";
 
 export default function PizzasList() {
   const [pizzas, setPizzas] = useState([]);
@@ -8,7 +8,7 @@ export default function PizzasList() {
   const [, setError] = useState(null);
 
   useEffect(() => {
-    fetchPizzas(API_URL, setPizzas, setLoading, setError);
+    fetchData(API_URL, setPizzas, setLoading, setError);
   }, []);
 
   return (
