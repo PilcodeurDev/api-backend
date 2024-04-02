@@ -13,10 +13,10 @@ module ApiBackend
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         # Autorise les requêtes de cette origine
-        origins 'http://localhost:5173'
-        # Autorise l'accès à cette ressource 
-        resource '/api/v1/pizzas', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+        origins 'http://127.0.0.1:5173'
 
+        # Autorise l'accès à cette ressource
+        resource '/api/v1/*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
     # Initialize configuration defaults for originally generated Rails version.

@@ -7,11 +7,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    # provenance de la requête
-    # (developpement origin "https://mon-site.com" ou "https://www.mon-site.com")
-    origins 'http://localhost:5173'
+    # (production => origin "https://mon-site.com" ou "https://www.mon-site.com")
+    origins 'http://127.0.0.1:5173' # SPOILER: zone d'énervement - http://localhost:5173 ne fonctionne pas.
 
-    resource "api/v1/pizzas",
+    resource "api/v1/*", # SPOILER: zone d'énervement - Controller les ressources. J'écrit tracteur a la place de pizzas ou * et ca fonctionne. Je ne conprend pas pourquoi.
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
